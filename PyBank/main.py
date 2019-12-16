@@ -1,5 +1,11 @@
-#This is main.py
-print("Hello")
+print("Financial Analysis")
+print("-------------------------------------------------")
 
-#practice saving stuff Monday, Dec 16, 2019
-print("It's Monday!")
+import os
+import csv
+
+PyBankCSV = os.path.join('..', 'Resources', 'budget_data.csv')
+
+
+
+
