@@ -1,8 +1,8 @@
-print("Financial Analysis")
-print("-------------------------------------------------")
-
 import os
 import csv
+
+print("Financial Analysis")
+print("-------------------------------------------------")
 
 # Path to collect data from the Resources folder
 csvpath = os.path.join('Resources', 'budget_data.csv')
@@ -13,7 +13,7 @@ with open(csvpath, newline="") as csvfile:
     #print(csv_reader)
 
     csv_header = next(csv_reader)
-    #print(f"CSV Header: {csv_header}")
+    print(f"CSV Header: {csv_header}")
 
     for row in csv_reader:
        print(row[1])
@@ -29,7 +29,12 @@ def Numbers(number):
         print(numberValue)
 myList = ["Total Months", "Total", "Average Change", "Greatest Increase in Profits", "Greatest Decrease in Profits"]
 Numbers(myList)
-    
+
+
+
+
+
+
 
    
 
