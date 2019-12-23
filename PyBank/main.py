@@ -1,53 +1,68 @@
-#Import dependencies
-import os 
+# Modules
+import os
 import csv
 
-# Path to collect data from the Resources folder
-csvpath = os.path.join('Resources', 'budget_data.csv')
+# Set path for file
+csvpath = os.path.join("Resources" , "budget_data.csv")
 
+# Create lists to store data
+month = []
+profit_loss_table = []
+NewPL = []
+OldPL = []
+amount_change = []
+month_adjusted = []
 
-
-
+# Open the CSV
 with open(csvpath, newline="") as csvfile:
-    csv_reader = csv.reader(csvfile, delimiter=",")
+    csvreader = csv.reader(csvfile, delimiter=",")
+    next(csvreader)
 
-    csv_header = next(csv_reader)
+    # Loop through records
+    for row in csvreader:
+       month.append(row[0])
+       profit_loss_table.append(int(row[1]))
     
+    total_amount = sum(profit_loss_table)
+    NewPL = profit_loss_table[1:]
+    OldPL = profit_loss_table[:-1]
 
-    #for row in csv_reader:
-        #if float(row[1]) >= 1000000:
-            #print(row)
-
-#def Numbers(number):
-    #print("Total Months: ")
+    # Option 1 to find Average Change (newest value - oldest value) / (# of months -1)
+    #print("----------------------------")
+    #print(profit_loss_table[0])
+    #print(profit_loss_table[-1])
+    #print("----------------------------")
     
-    #for numberValue in number:
-        #print(numberValue)
-#myList = ["Total Months", "Total", "Average Change", "Greatest Increase in Profits", "Greatest Decrease in Profits"]
-#Numbers(myList)
+    # Option 2 to find Average Change using lists:
+    amount_change = [new - old for (new, old) in zip(NewPL, OldPL)]
+    #amount_change_test = profit_loss_table[]
+    avg_change = round((sum(amount_change) / len(amount_change)),2)
+    
+## Greatest Profit and Loss Values
+    # adjust month list to fit the amount_change list. It takes out the first value 
+    # since the first month does not have a change.
+    month_adjusted = month[1:]
 
+    # find the index number of the highest profit and loss amount in amount_change list
+    MaxIndex = amount_change.index(max(amount_change))
+    MinIndex = amount_change.index(min(amount_change))
 
+    MaxProfitMonth = month_adjusted[MaxIndex]
+    MinProfitMonth = month_adjusted[MinIndex]
+    MaxProfit = amount_change[MaxIndex]
+    MinProfit = amount_change[MinIndex]
 
+# print final hw
+    print("----------------------------")
+    print("Finacial Analysis")
+    print("----------------------------")
+    print("Total Months: " + str(len(month)))
+    print("Total: " + "$" + format(total_amount, ","))
+    print("Average Change: " + "$" + format(avg_change,',.2f'))
+    print("Greatest Increase in Profits: " + MaxProfitMonth + " ($" + format(MaxProfit,',.2f') + ")")
+    print("Greatest Decrease in Profits: " + MinProfitMonth + " ($" + format(MinProfit, ',.2f') + ")")
+    print("----------------------------")
 
-
-
-
-   
-
-
-
-
-# Read in the CSV file
-#with open(banking_csv, "r") as csvfile:
-
-    # Split the data on commas
-    #csvreader = csv.reader(csvfile, delimiter=',')
-
-    #header = next(csvreader)
-
-    #for row in csvreader:
-        #if float(row[1]) >= 10:
-            #print(row)
 
 
 
