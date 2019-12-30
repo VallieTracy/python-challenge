@@ -19,6 +19,10 @@ with open(csvpath, newline="") as csvfile:
 
     unique_candidate = list(dict.fromkeys(candidate))
     print(unique_candidate)
+    Khan_count = candidate.count("Khan")
+    print(Khan_count)
+    Khan_percent = Khan_count / total_votes
+    print(Khan_percent)
 
 
 print("Election Results")
