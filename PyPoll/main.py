@@ -20,8 +20,8 @@ with open(csvpath, newline="") as csvfile:
         voter_id.append(row[0])
         candidate.append(row[2])
 
-    #total votes cast can be determined by how many voter id's, after looping through the data,
-    #are in the voted_id list.  My coding assumes that there are no errors, no multiple voter ids
+    #total votes cast can be determined by how many voter id's there are
+    #my coding assumes that there are no errors, no multiple voter ids
     total_votes = len(voter_id)
     
     #if I print this, it will tell me all unique candidates
