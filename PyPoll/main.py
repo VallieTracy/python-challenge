@@ -58,6 +58,22 @@ print("-----------------------")
 print("Winner: " + winner(candidate))
 print("-----------------------")
 
+#print results to .txt file
+file = "election_results.txt"
+with open(file, "w") as f:
+    print("Election Results", file=f)
+    print("-----------------------", file=f)
+    print("Total Votes: " + format(total_votes, ","), file=f)    
+    print("-----------------------", file=f)
+    print("Khan:     " + str(round(Khan_percent, 3)) + "% (" + format(Khan_count, ",") + ")", file=f)
+    print("Correy:   " + str(round(Correy_percent, 3)) + "% (" + format(Correy_count, ",") + ")", file=f)
+    print("Li:       " + str(round(Li_percent, 3)) + "% (" + format(Li_count, ",") + ")", file=f)
+    print("O'Tooley: " + str(round(OTooley_percent, 3)) + "% (" + format(OTooley_count, ",") + ")", file=f)
+    print("-----------------------", file=f)
+    print("Winner: " + winner(candidate), file=f)
+    print("-----------------------", file=f)
+    f.close()
+
     
 
 
