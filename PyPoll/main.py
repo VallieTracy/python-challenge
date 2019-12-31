@@ -44,7 +44,7 @@ with open(csvpath, newline="") as csvfile:
     def winner(list):
         return max(set(list), key = list.count)   
         
-#print the results
+#print the results   
 #i made some minor changes to the formatting in order to make it more readable
 #format changes: comma separators in numbers & aligned the candidate names and vote count
 print("Election Results")
