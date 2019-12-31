@@ -24,12 +24,12 @@ with open(csvpath, newline="") as csvfile:
         individual_period.append(row[0])
         profits_and_losses.append(int(row[1]))
 
-    #summing the appended profits_and_losses list after looping 
-    #through all data
+    #summing the appended profits_and_losses list 
+    #after looping through all data
     net_profits = sum(profits_and_losses)
     
-    #altering the profits_and_losses to align so that
-    #we can correctly subtract them 
+    #altering the profits_and_losses to align 
+    #so that we can correctly subtract them 
     next_pl_amount = profits_and_losses[1:]
     former_pl_amount = profits_and_losses[:-1]
         
@@ -50,10 +50,7 @@ with open(csvpath, newline="") as csvfile:
     minimum_profit_period = individual_period_adjusted[minimum_profit_index]
     maximum_profit = pl_change[maximum_profit_index]
     minimum_profit = pl_change[minimum_profit_index]
-    
-
-     
-
+ 
 
 #print output
 print("Financial Analysis")
@@ -63,3 +60,15 @@ print("Total: " + "$" + format(net_profits, ","))
 print("Average Change: " + "$" + format(average_pl_change, ","))
 print("Greatest Increase in Profits: " + maximum_profit_period + " ($" + format(maximum_profit, ",") + ")")
 print("Greatest Decrease in Profits: " + minimum_profit_period + " ($" + format(minimum_profit, ",") + ")")
+
+#print results to .txt file
+file = "financial_analysis_results.txt"
+with open(file, "w") as f:
+    print("Financial Analysis", file=f)
+    print("-----------------------", file=f)
+    print("Total Months: " + str(len(individual_period)), file=f)
+    print("Total: " + "$" + format(net_profits, ","), file=f)
+    print("Average Change: " + "$" + format(average_pl_change, ","), file=f)
+    print("Greatest Increase in Profits: " + maximum_profit_period + " ($" + format(maximum_profit, ",") + ")", file=f)
+    print("Greatest Decrease in Profits: " + minimum_profit_period + " ($" + format(minimum_profit, ",") + ")", file=f)
+    f.close()
