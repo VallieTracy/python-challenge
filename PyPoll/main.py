@@ -27,7 +27,7 @@ with open(csvpath, newline="") as csvfile:
     #if I print this, it will tell me all unique candidates
     unique_candidate = list(dict.fromkeys(candidate))
     
-    #Numeric info on all candidates
+    #numeric info on all candidates
     Khan_count = candidate.count("Khan")
     Khan_percent = (Khan_count / total_votes) * 100
     
@@ -46,6 +46,7 @@ with open(csvpath, newline="") as csvfile:
         
 #print the results
 #i made some minor changes to the formatting in order to make it more readable
+#format changes: comma separators in numbers & aligned the candidate names and vote count
 print("Election Results")
 print("-----------------------")
 print("Total Votes: " + format(total_votes, ","))    
