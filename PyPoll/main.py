@@ -40,19 +40,22 @@ with open(csvpath, newline="") as csvfile:
     OTooley_count = candidate.count("O'Tooley")
     OTooley_percent = (OTooley_count / total_votes) * 100
     
-    
-
-
+    #create a function to determin the election winner
+    def winner(list):
+        return max(set(list), key = list.count)   
+        
+#print the results
+#i made some minor changes to the formatting in order to make it more readable
 print("Election Results")
 print("-----------------------")
 print("Total Votes: " + format(total_votes, ","))    
 print("-----------------------")
-print("Khan: " + str(round(Khan_percent, 3)) + "% (" + format(Khan_count, ",") + ")")
-print("Correy: " + str(round(Correy_percent, 3)) + "% (" + format(Correy_count, ",") + ")")
-print("Li: " + str(round(Li_percent, 3)) + "% (" + format(Li_count, ",") + ")")
+print("Khan:     " + str(round(Khan_percent, 3)) + "% (" + format(Khan_count, ",") + ")")
+print("Correy:   " + str(round(Correy_percent, 3)) + "% (" + format(Correy_count, ",") + ")")
+print("Li:       " + str(round(Li_percent, 3)) + "% (" + format(Li_count, ",") + ")")
 print("O'Tooley: " + str(round(OTooley_percent, 3)) + "% (" + format(OTooley_count, ",") + ")")
 print("-----------------------")
-print("Winner: ")
+print("Winner: " + winner(candidate))
 print("-----------------------")
 
     
