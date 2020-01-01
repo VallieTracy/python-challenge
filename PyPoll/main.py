@@ -32,7 +32,7 @@ with open(csvpath, newline="") as csvfile:
     Khan_percent = (Khan_count / total_votes) * 100
     
     Correy_count = candidate.count("Correy")
-    Correy_percent = (Correy_count / total_votes) * 100
+    Correy_percent = (Correy_count / total_votes) * 100  
     
     Li_count = candidate.count("Li")
     Li_percent = (Li_count / total_votes) * 100

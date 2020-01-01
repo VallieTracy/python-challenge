@@ -1,6 +1,6 @@
 #import dependencies
 import os
-import csv
+import csv  
 
 #path to csv file
 csvpath = os.path.join("Resources", "budget_data.csv")   
