@@ -71,4 +71,4 @@ with open(file, "w") as f:
     print("Average Change: " + "$" + format(average_pl_change, ","), file=f)
     print("Greatest Increase in Profits: " + maximum_profit_period + " ($" + format(maximum_profit, ",") + ")", file=f)
     print("Greatest Decrease in Profits: " + minimum_profit_period + " ($" + format(minimum_profit, ",") + ")", file=f)
-    f.close()
+    f.close()  
